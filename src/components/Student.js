@@ -3,12 +3,11 @@ import React, { Component } from 'react';
 class Student extends Component {
 
   render() {
-    const studentName = 'Hermine Granger';
-    const studentAge = 18;
-    const studentEmail = 'hermine@hogwarts.edu'
+    const studentAge = this.props.studentData.age;
+    const studentEmail = this.props.studentData.email;
     return (
       <article>
-        <h3>{studentName}</h3>
+        <h3>{this.props.studentData.name}</h3>
         <p>Age: {studentAge}</p>
         <p>email: {studentEmail}</p>
       </article>

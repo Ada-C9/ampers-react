@@ -6,26 +6,44 @@ import Student from './components/Student';
 class App extends Component {
 
   render() {
+    const students = [
+      {
+        name: 'Hermine Granger',
+        age: 18,
+        email: 'Hermine@hogwarts.edu'
+      },
+      {
+        name: 'Ada Lovelace',
+        age: 18,
+        email: 'ada@adadev.org',
+      }
+    ];
 
-    let greeting = 'This is a custom greeting!';
-    const appClassName = 'App';
-    if (true) {
-      greeting = 'Reassigning a custom greeting within a condition!';
-    }
-    const listItem = (<li>This is a list item</li>);
-    const name = 'Dee';
+    const studentComponents = students.map((student) => {
+      return (
+        <li key={student.email}>
+        <Student
+           studentData={student}
+        />
+    </li>
+      );
+    });
+
+
 
     return (
-      <div className={appClassName}>
+      <div className={"appClassName"}>
         <header className="App-header">
           <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">{name} is totally awesome!</h1>
+          <h1 className="App-title">Ada is totally awesome!</h1>
         </header>
         <p className="App-intro">
           To get started, edit <code>src/App.js</code> and save to reload. {2 + 2}
         </p>
-        {listItem}
-        <Student />
+        <ul>
+          {studentComponents}
+        </ul>
+
 
 
 
