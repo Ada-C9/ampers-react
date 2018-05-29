@@ -24,6 +24,8 @@ class App extends Component {
         <li key={student.email}>
         <Student
            studentData={student}
+           name={student.name}
+           email={student.email}
         />
     </li>
       );
