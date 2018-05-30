@@ -39,19 +39,9 @@ class App extends Component {
           <img src={logo} className="App-logo" alt="logo" />
           <h1 className="App-title">Ada is totally awesome!</h1>
         </header>
-        <p className="App-intro">
-          To get started, edit <code>src/App.js</code> and save to reload. {2 + 2}
-        </p>
         <ul>
           {studentComponents}
         </ul>
-
-
-
-
-
-
-
       </div>
     );
   }
