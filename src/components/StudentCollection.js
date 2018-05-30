@@ -4,27 +4,46 @@ import Student from './Student';
 
 class StudentCollection extends Component {
 
-  render() {
-    const students = [
-      {
-        name: 'Hermione Granger',
-        age: 18,
-        email: 'Hermione@hogwarts.edu'
-      },
-      {
-        name: 'Ada Lovelace',
-        age: 18,
-        email: 'ada@adadev.org',
-      }
-    ];
+  constructor() {
+    super();
 
-    const studentComponents = students.map((student) => {
+    this.state = {
+      students: [
+        {
+          name: 'Hermione Granger',
+          email: 'Hermione@hogwarts.edu',
+          present: false,
+        },
+        {
+          name: 'Ada Lovelace',
+          email: 'ada@adadev.org',
+          present: false,
+        }
+      ]
+    };
+  }
+
+  onStudentPresentChange = ( studentIndex ) => {
+    let updatedStudents = this.state.students;
+    updatedStudents[ studentIndex ].present = true;
+
+    this.setState( {
+      students: updatedStudents
+    } );
+  }
+
+  render() {
+    console.log("In render function, this is the student data on StudentCollection's state");
+    console.log(this.state.students);
+
+    const studentComponents = this.state.students.map((student, index) => {
       return (
         <li key={student.email}>
           <Student
-             studentData={student}
              name={student.name}
              email={student.email}
+             onStudentPresentChange = { this.onStudentPresentChange }
+             index = { index }
           />
         </li>
       );

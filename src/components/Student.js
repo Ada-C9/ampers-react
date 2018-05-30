@@ -7,7 +7,6 @@ class Student extends Component {
     super(props);
 
     this.state = {
-      isPresent: true,
       name: props.name,
     };
   }
@@ -20,11 +19,9 @@ class Student extends Component {
     return 'student';
   }
 
-  onToggleButton = () => {
-    const isPresent = !this.state.isPresent
-    this.setState({
-      isPresent,
-    });
+  onClickPresentButton = () => {
+    console.log(this);
+    this.props.onStudentPresentChange( this.props.index );
   }
 
   onNameChange = (event) => {
@@ -33,11 +30,12 @@ class Student extends Component {
 
     this.setState({
       name: event.target.value,
-    })
+    });
   }
 
   render() {
-    const studentAge = this.props.studentData.age;
+    console.log('In Student\'s render, logging props');
+    console.log(this.props);
     const studentEmail = this.props.email;
     return (
       <article
@@ -50,14 +48,10 @@ class Student extends Component {
           type="text"
           name="name"
         />
-        <p>Age: {studentAge}</p>
         <p>email: {studentEmail}</p>
-        <h4>
-          {this.state.isPresent ? "In class": "Absent"}
-        </h4>
         <button
-          onClick={ this.onToggleButton }>
-          Toggle Present
+          onClick={ this.onClickPresentButton }>
+          Click to mark that {this.state.name} is present
         </button>
 
       </article>
@@ -69,7 +63,8 @@ class Student extends Component {
 Student.propTypes = {
   name: PropTypes.string.isRequired,
   email: PropTypes.string.isRequired,
-  isPresent: PropTypes.bool,
+  onStudentPresentChange: PropTypes.func,
+  index: PropTypes.number.isRequired,
 };
 
 
