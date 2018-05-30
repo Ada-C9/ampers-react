@@ -21,19 +21,22 @@ class StudentCollection extends Component {
     const studentComponents = students.map((student) => {
       return (
         <li key={student.email}>
-        <Student
-           studentData={student}
-           name={student.name}
-           email={student.email}
-        />
+          <Student
+             studentData={student}
+             name={student.name}
+             email={student.email}
+          />
         </li>
       );
     });
 
     return (
-      <ul>
-        {studentComponents}
-      </ul>
+      <section>
+        <h2>Student Collection</h2>
+        <ul>
+          {studentComponents}
+        </ul>
+      </section>
     );
   }
 }

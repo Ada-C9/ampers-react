@@ -45,15 +45,16 @@ class Student extends Component {
         <h3>
           {this.state.name}
         </h3>
+        <label>Change this name: </label>
         <input onChange={ this.onNameChange }
           type="text"
           name="name"
         />
+        <p>Age: {studentAge}</p>
+        <p>email: {studentEmail}</p>
         <h4>
           {this.state.isPresent ? "In class": "Absent"}
         </h4>
-        <p>Age: {studentAge}</p>
-        <p>email: {studentEmail}</p>
         <button
           onClick={ this.onToggleButton }>
           Toggle Present
