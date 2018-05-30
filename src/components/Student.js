@@ -12,20 +12,8 @@ class Student extends Component {
     };
   }
 
-
-
-  // static propTypes = {
-  //   name: PropTypes.string.isRequired,
-  //   email: PropTypes.string.isRequired,
-  //   isPresent: PropTypes.bool,
-  // }
-
-  // isTopStudent() {
-  //   return this.props.name === 'Hermine Granger';
-  // }
-
   isTopStudent = () => {
-    if (this.props.name === 'Hermine Granger') {
+    if (this.props.name === 'Hermione Granger') {
       return 'top-student';
     }
 
@@ -37,16 +25,11 @@ class Student extends Component {
     this.setState({
       isPresent,
     });
-
   }
 
   onNameChange = (event) => {
     console.log(event.target.value);
     console.log(this.props.name);
-    // const name = event.target.value;
-    // this.setState({
-    //   name,
-    // });
 
     this.setState({
       name: event.target.value,
@@ -54,10 +37,6 @@ class Student extends Component {
   }
 
   render() {
-    // const studentStyle = {
-    //   color: 'purple',
-    //   fontSize: '20pt',
-    // };
     const studentAge = this.props.studentData.age;
     const studentEmail = this.props.email;
     return (

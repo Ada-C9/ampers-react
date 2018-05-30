@@ -8,9 +8,9 @@ class App extends Component {
   render() {
     const students = [
       {
-        name: 'Hermine Granger',
+        name: 'Hermione Granger',
         age: 18,
-        email: 'Hermine@hogwarts.edu'
+        email: 'Hermione@hogwarts.edu'
       },
       {
         name: 'Ada Lovelace',
@@ -35,9 +35,8 @@ class App extends Component {
 
     return (
       <div className={"appClassName"}>
-        <header className="App-header">
-          <img src={logo} className="App-logo" alt="logo" />
-          <h1 className="App-title">Ada is totally awesome!</h1>
+        <header>
+          <h1 className="App-title">Student Classroom App!</h1>
         </header>
         <ul>
           {studentComponents}
