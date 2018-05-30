@@ -1,5 +1,4 @@
 import React, { Component } from 'react';
-import logo from './logo.svg';
 import './App.css';
 import StudentCollection from './components/StudentCollection';
 
@@ -7,9 +6,9 @@ class App extends Component {
 
   render() {
     return (
-      <div className={"appClassName"}>
+      <div>
         <header>
-          <h1 className="App-title">Student Classroom App!</h1>
+          <h1>Student Classroom App!</h1>
         </header>
         <StudentCollection />
       </div>
