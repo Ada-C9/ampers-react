@@ -4,7 +4,11 @@ import './Student.css';
 
 class Student extends Component {
 
-  
+  // static propTypes = {
+  //   name: PropTypes.string.isRequired,
+  //   email: PropTypes.string.isRequired,
+  //   isPresent: PropTypes.bool,
+  // }
 
   // isTopStudent() {
   //   return this.props.name === 'Hermine Granger';
@@ -37,5 +41,18 @@ class Student extends Component {
   }
 
 }
+
+Student.propTypes = {
+  name: PropTypes.string.isRequired,
+  email: PropTypes.string.isRequired,
+  isPresent: PropTypes.bool,
+};
+
+
+
+
+
+
+
 
 export default Student;
