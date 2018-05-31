@@ -1,0 +1,11 @@
+.success {
+  background-color: lightblue;
+}
+
+.valid {
+  background: lightgreen;
+}
+
+.invalid {
+  background: pink;
+}

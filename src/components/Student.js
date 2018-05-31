@@ -5,10 +5,6 @@ import './Student.css';
 class Student extends Component {
   constructor(props) {
     super(props);
-
-    this.state = {
-      name: props.name,
-    };
   }
 
   isTopStudent = () => {
@@ -28,9 +24,8 @@ class Student extends Component {
     console.log(event.target.value);
     console.log(this.props.name);
 
-    this.setState({
-      name: event.target.value,
-    });
+    this.props.onStudentNameChange(this.props.index, event.target.value);
+
   }
 
   render() {
@@ -41,17 +36,18 @@ class Student extends Component {
       <article
         className={ this.isTopStudent() }>
         <h3>
-          {this.state.name}
+          {this.props.name}
         </h3>
         <label>Change this name: </label>
         <input onChange={ this.onNameChange }
           type="text"
           name="name"
+          value={ this.props.name }
         />
         <p>email: {studentEmail}</p>
         <button
           onClick={ this.onClickPresentButton }>
-          Click to mark that {this.state.name} is present
+          Click to mark that {this.props.name} is present
         </button>
 
       </article>
@@ -65,6 +61,7 @@ Student.propTypes = {
   email: PropTypes.string.isRequired,
   onStudentPresentChange: PropTypes.func,
   index: PropTypes.number.isRequired,
+  onStudentNameChange: PropTypes.func.isRequired,
 };
 
 

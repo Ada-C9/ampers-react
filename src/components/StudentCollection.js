@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import '../App.css';
 import Student from './Student';
+import NewStudentForm from './NewStudentForm';
 
 class StudentCollection extends Component {
 
@@ -32,6 +33,31 @@ class StudentCollection extends Component {
     } );
   }
 
+  addStudent = (student) => {
+    const students = this.state.students;
+    students.push(student);
+    this.setState({
+      students,
+    });
+  }
+
+
+
+
+
+
+
+
+
+  onStudentNameChange = (index, value) => {
+    const students = this.state.students;
+    students[index].name = value;
+
+    this.setState({
+      students,
+    });
+  }
+
   render() {
     console.log("In render function, this is the student data on StudentCollection's state");
     console.log(this.state.students);
@@ -44,6 +70,7 @@ class StudentCollection extends Component {
              email={student.email}
              onStudentPresentChange = { this.onStudentPresentChange }
              index = { index }
+             onStudentNameChange = { this.onStudentNameChange }
           />
         </li>
       );
@@ -52,6 +79,9 @@ class StudentCollection extends Component {
     return (
       <section>
         <h2>Student Collection</h2>
+        <NewStudentForm
+          addStudent={this.addStudent}
+          />
         <ul>
           {studentComponents}
         </ul>
