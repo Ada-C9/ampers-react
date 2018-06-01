@@ -3,9 +3,6 @@ import PropTypes from 'prop-types';
 import './Student.css';
 
 class Student extends Component {
-  constructor(props) {
-    super(props);
-  }
 
   isTopStudent = () => {
     if (this.props.name === 'Hermione Granger') {
@@ -24,8 +21,7 @@ class Student extends Component {
     console.log(event.target.value);
     console.log(this.props.name);
 
-    this.props.onStudentNameChange(this.props.index, event.target.value);
-
+    this.props.changeName(event.target.value, this.props.index);
   }
 
   render() {
@@ -42,7 +38,6 @@ class Student extends Component {
         <input onChange={ this.onNameChange }
           type="text"
           name="name"
-          value={ this.props.name }
         />
         <p>email: {studentEmail}</p>
         <button
@@ -61,7 +56,7 @@ Student.propTypes = {
   email: PropTypes.string.isRequired,
   onStudentPresentChange: PropTypes.func,
   index: PropTypes.number.isRequired,
-  onStudentNameChange: PropTypes.func.isRequired,
+  changeName: PropTypes.func.isRequired,
 };
 
 

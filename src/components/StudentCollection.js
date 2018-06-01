@@ -24,6 +24,15 @@ class StudentCollection extends Component {
     };
   }
 
+  changeName = (value, index) => {
+    const students = this.state.students;
+
+    students[index].name = value;
+    this.setState({
+      students,
+    });
+  }
+
   onStudentPresentChange = ( studentIndex ) => {
     let updatedStudents = this.state.students;
     updatedStudents[ studentIndex ].present = true;
@@ -43,21 +52,6 @@ class StudentCollection extends Component {
 
 
 
-
-
-
-
-
-
-  onStudentNameChange = (index, value) => {
-    const students = this.state.students;
-    students[index].name = value;
-
-    this.setState({
-      students,
-    });
-  }
-
   render() {
     console.log("In render function, this is the student data on StudentCollection's state");
     console.log(this.state.students);
@@ -70,7 +64,7 @@ class StudentCollection extends Component {
              email={student.email}
              onStudentPresentChange = { this.onStudentPresentChange }
              index = { index }
-             onStudentNameChange = { this.onStudentNameChange }
+             changeName = { this.changeName }
           />
         </li>
       );
