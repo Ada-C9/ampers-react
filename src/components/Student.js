@@ -17,12 +17,6 @@ class Student extends Component {
     this.props.onStudentPresentChange( this.props.index );
   }
 
-  onNameChange = (event) => {
-    console.log(event.target.value);
-    console.log(this.props.name);
-
-    this.props.changeName(event.target.value, this.props.index);
-  }
 
   render() {
     console.log('In Student\'s render, logging props');
@@ -35,9 +29,10 @@ class Student extends Component {
           {this.props.name}
         </h3>
         <label>Change this name: </label>
-        <input onChange={ this.onNameChange }
+        <input onChange={ (event) => {this.props.changeName(event.target.value, this.props.index)} }
           type="text"
           name="name"
+          value={ this.props.name }
         />
         <p>email: {studentEmail}</p>
         <button
@@ -57,6 +52,7 @@ Student.propTypes = {
   onStudentPresentChange: PropTypes.func,
   index: PropTypes.number.isRequired,
   changeName: PropTypes.func.isRequired,
+
 };
 
 
